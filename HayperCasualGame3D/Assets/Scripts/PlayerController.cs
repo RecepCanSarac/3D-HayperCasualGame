@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     CurrentDirection cr;
     public bool isPlayerDead = false;
+    private GameManager gameManager;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         cr = CurrentDirection.left;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,7 @@ public class PlayerController : MonoBehaviour
             StopPlayer();
             isPlayerDead = true;
             this.gameObject.SetActive(false);
+            gameManager.LevelEnd();
         }
     }
     private enum CurrentDirection

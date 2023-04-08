@@ -24,4 +24,13 @@ public class GameManager : MonoBehaviour
         losePanel.SetActive(true);
         scoreText.text = " Toplam Puan " + Score;
     }
+
+    public void StartApp()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void QuitApp()
+    {
+        Application.Quit();
+    }
 }
